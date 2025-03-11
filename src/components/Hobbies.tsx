@@ -57,7 +57,7 @@ const Hobbies = () => {
     <section 
       id="hobbies" 
       ref={sectionRef}
-      className="py-24 px-6 bg-gray-50 opacity-0"
+      className="py-24 px-6 bg-gray-50 opacity-0 transition-opacity duration-300"
     >
       <div className="max-w-4xl mx-auto">
         <div className="section-badge">Things I Enjoy</div>
