@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Gamepad } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +34,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/80 backdrop-blur-md shadow-sm" 
+          ? "bg-gray-900/90 backdrop-blur-md border-b border-green-500/20" 
           : "bg-transparent"
       }`}
     >
@@ -42,10 +42,10 @@ const Header = () => {
         {/* Logo */}
         <a href="#" className="group">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-semibold text-xl">
+            <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center text-gray-900 font-bold text-xl border-b-2 border-green-700">
               K
             </div>
-            <span className={`font-semibold text-lg transition-opacity ${
+            <span className={`font-bold text-lg transition-opacity text-green-400 ${
               isScrolled ? "opacity-100" : "opacity-0 sm:opacity-100"
             }`}>Kurt</span>
           </div>
@@ -57,7 +57,7 @@ const Header = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium hover:text-black/70"
+              className="text-sm font-medium text-gray-300 hover:text-green-400 transition-colors"
             >
               {item.label}
             </a>
@@ -66,7 +66,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden"
+          className="md:hidden text-green-400"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -76,7 +76,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div className={`
-        fixed inset-0 bg-white z-40 pt-20 px-6 md:hidden
+        fixed inset-0 bg-gray-900/95 z-40 pt-20 px-6 md:hidden
         transition-transform duration-300 ease-in-out
         ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}
       `}>
@@ -85,10 +85,13 @@ const Header = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-lg font-medium"
+              className="text-lg font-medium text-green-400 hover:text-green-300"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {item.label}
+              <div className="flex items-center gap-2">
+                <Gamepad size={16} />
+                {item.label}
+              </div>
             </a>
           ))}
         </nav>

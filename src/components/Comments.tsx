@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Send, MessageSquare } from "lucide-react";
+import { Send, MessageSquare, User } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 interface Comment {
   id: number;
@@ -75,6 +76,11 @@ const Comments = () => {
     setComments([newComment, ...comments]);
     setName("");
     setMessage("");
+    
+    toast({
+      title: "Message sent!",
+      description: "Your comment has been added to the guestbook.",
+    });
   };
 
   const formatDate = (date: Date) => {
@@ -91,23 +97,24 @@ const Comments = () => {
     <section 
       id="comments" 
       ref={sectionRef}
-      className="py-24 px-6 bg-gray-50 opacity-0"
+      className="py-24 px-6 bg-gray-800 opacity-0 scanlines"
     >
       <div className="max-w-4xl mx-auto">
-        <div className="section-badge">Leave a Note</div>
-        <h2 className="section-title mb-12">Comments</h2>
+        <div className="section-badge">Guestbook</div>
+        <h2 className="section-title mb-12">Leave a Message</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           {/* Comment Form */}
-          <div className="card-glass">
-            <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
+          <div className="card-glass border border-green-500/30">
+            <h3 className="text-xl font-medium mb-6 flex items-center gap-2 text-green-400">
               <MessageSquare size={20} />
               <span>Share your thoughts</span>
             </h3>
             
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1 flex items-center gap-2">
+                  <User size={14} />
                   Your Name
                 </label>
                 <input
@@ -116,13 +123,14 @@ const Comments = () => {
                   placeholder="Enter your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
+                  className="w-full px-4 py-2 rounded-md border border-green-500/30 bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-green-500/50 text-white"
                   required
                 />
               </div>
               
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1 flex items-center gap-2">
+                  <MessageSquare size={14} />
                   Message
                 </label>
                 <textarea
@@ -130,7 +138,7 @@ const Comments = () => {
                   placeholder="Enter your message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 min-h-[120px]"
+                  className="w-full px-4 py-2 rounded-md border border-green-500/30 bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-green-500/50 text-white min-h-[120px]"
                   required
                 />
               </div>
@@ -147,22 +155,22 @@ const Comments = () => {
           
           {/* Comments List */}
           <div>
-            <h3 className="text-xl font-medium mb-6">Recent comments</h3>
+            <h3 className="text-xl font-medium mb-6 text-green-400">Recent comments</h3>
             
             {comments.length === 0 ? (
-              <div className="card-glass text-center p-8">
-                <p className="text-gray-500">No comments yet. Be the first to leave a message!</p>
+              <div className="card-glass text-center p-8 border border-green-500/30">
+                <p className="text-gray-400">No comments yet. Be the first to leave a message!</p>
               </div>
             ) : (
               <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
                 {comments.map((comment) => (
                   <div key={comment.id} className="comment-item">
                     <div className="flex justify-between items-center mb-2">
-                      <h4 className="font-medium">{comment.name}</h4>
+                      <h4 className="font-medium text-green-400">{comment.name}</h4>
                       <span className="text-xs text-gray-500">{formatDate(comment.timestamp)}</span>
                     </div>
                     
-                    <div className="max-h-[150px] overflow-y-auto pr-2 text-gray-700">
+                    <div className="max-h-[150px] overflow-y-auto pr-2 text-gray-300 border-l-2 border-green-500/30 pl-3">
                       {comment.message}
                     </div>
                   </div>
