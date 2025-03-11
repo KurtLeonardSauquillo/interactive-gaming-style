@@ -71,11 +71,13 @@ const About = () => {
           </div>
           
           <div className="aspect-square rounded-md overflow-hidden shadow-lg border-2 border-green-500/30 transition-all hover:shadow-xl hover:shadow-green-500/10 relative">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMCwgMjU1LCAwLCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-50"></div>
-            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
-              <div className="scanlines absolute inset-0"></div>
-              <div className="text-6xl font-bold text-green-400 animate-pulse">KL</div>
-            </div>
+            <img 
+              src="/lovable-uploads/374109a7-a18d-4733-86ee-cf3e451412c1.png" 
+              alt="Kurt Leonard profile picture" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMCwgMjU1LCAwLCAwLjEpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-20 pointer-events-none"></div>
+            <div className="absolute inset-0 scanlines opacity-20 pointer-events-none"></div>
           </div>
         </div>
       </div>
