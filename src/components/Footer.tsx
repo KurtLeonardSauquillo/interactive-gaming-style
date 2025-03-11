@@ -7,17 +7,17 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: Instagram, 
-      url: "https://www.instagram.com/kurtleonard_/",
+      url: "https://www.instagram.com/_kurtleo8/",
       label: "Instagram" 
     },
     { 
       icon: Github, 
-      url: "https://github.com/kurtleonard",
+      url: "https://github.com/KurtLeonardSauquillo",
       label: "GitHub" 
     },
     { 
       icon: Linkedin, 
-      url: "https://www.linkedin.com/in/kurt-leonard-sauquillo",
+      url: "https://www.linkedin.com/in/kurt-leonard-sauquillo-779268249/",
       label: "LinkedIn" 
     }
   ];
@@ -36,7 +36,7 @@ const Footer = () => {
             
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin size={16} className="text-green-500" />
-              <span>Pasay, 1630</span>
+              <span>Taguig, 1630</span>
             </div>
           </div>
           
